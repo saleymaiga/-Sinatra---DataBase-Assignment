@@ -9,6 +9,7 @@ get '/' do
 @user = User.find(1)
 @post = Post.find(1)
 @profile = Profile.find(1)
+@room = Room.find(2)
 
 
 erb :home

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221021929) do
+ActiveRecord::Schema.define(version: 20140226082859) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -28,10 +28,20 @@ ActiveRecord::Schema.define(version: 20140221021929) do
   end
 
   create_table "rooms", force: true do |t|
-    t.integer "room_1"
-    t.integer "room_2"
-    t.integer "room_3"
-    t.integer "room_4"
+    t.integer "room_number"
+    t.integer "room_size"
+    t.integer "number_of_bed"
+    t.integer "number_of_windows"
+  end
+
+  create_table "user_room", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+  end
+
+  create_table "user_rooms", force: true do |t|
+    t.integer "user_id"
+    t.integer "room_id"
   end
 
   create_table "users", force: true do |t|
@@ -39,6 +49,11 @@ ActiveRecord::Schema.define(version: 20140221021929) do
     t.string "lname"
     t.string "email"
     t.string "dob"
+  end
+
+  create_table "users_rooms", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "room_id"
   end
 
 end

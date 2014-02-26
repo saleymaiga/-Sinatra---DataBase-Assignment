@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
    has_one :profile
    has_many :user_rooms
    has_many :rooms, through: :user_rooms 
-  
-
+   has_many :posts
 
 end
 
